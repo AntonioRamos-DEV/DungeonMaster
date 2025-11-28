@@ -1,0 +1,334 @@
+{
+  "partidas": [
+    {
+      "id": "1764323057235",
+      "fecha": "2025-11-28T09:44:17.235Z",
+      "systemPrompt": "entro en la taberna y pido una cerveza",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "entro en la taberna y pido una cerveza"
+        },
+        {
+          "role": "user",
+          "content": "ataco al orco con mi espada larga"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: Invalid API Key"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "entro en la taberna y pido una cerveza"
+        },
+        {
+          "role": "user",
+          "content": "ataco al orco con mi espada larga"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: Invalid API Key"
+        }
+      ]
+    },
+    {
+      "id": "1764323220364",
+      "fecha": "2025-11-28T09:47:00.364Z",
+      "systemPrompt": "Soy un orco agresivo y feo. La aventura comienza en una taberna",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "Soy un orco agresivo y feo. La aventura comienza en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "Entro en la taberna y me pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead."
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "Soy un orco agresivo y feo. La aventura comienza en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "Entro en la taberna y me pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "Al entrar en la taberna, te rodea un ambiente cálido y ruidoso. El olor a cerveza y carne asada llena tus fosas nasales, y el sonido de risas y conversaciones te envuelve. La taberna está llena de clientes variados, desde humanos y enanos hasta elfos y otros seres más exóticos.\n\nTe acercas a la barra y pides una cerveza al tabernero, un hombre gordo y amable con una barba espesa. Te mira con una mezcla de curiosidad y desconfianza, ya que no es común que un orco entre en su taberna.\n\n\"Una cerveza, ¿eh? ¿Qué tipo de cerveza quieres, amigo... orco?\" te pregunta, intentando sonar amable aunque su voz tiene un tono de prudencia.\n\nMientras esperas a que te sirvan la cerveza, notas que algunos de los clientes te miran con desconfianza o miedo. Un grupo de humanos en la esquina te lanzan miradas hostiles, y un enano en la barra te gruñe algo ininteligible.\n\nDe repente, un hombre delgado y con aspecto de mercader se acerca a ti y te susurra:\n\n\"Oye, orco, no te metas en problemas aquí. La taberna puede ser un lugar peligroso para... seres como tú. ¿Qué te trae aquí?\"\n\n¿Qué haces?"
+        }
+      ]
+    },
+    {
+      "id": "1764323443877",
+      "fecha": "2025-11-28T09:50:43.877Z",
+      "systemPrompt": "Soy un orco agresivo y feo. Empazamos en una taberna",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "Soy un orco agresivo y feo. Empazamos en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro a la taberna y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `llama-3-70b-8192` does not exist or you do not have access to it."
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "Soy un orco agresivo y feo. Empazamos en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro a la taberna y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead."
+        }
+      ]
+    },
+    {
+      "id": "1764323576324",
+      "fecha": "2025-11-28T09:52:56.324Z",
+      "systemPrompt": "soy un orco feo y tonto. empezamos en una taberna\n",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "soy un orco feo y tonto. empezamos en una taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro a la taberna y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `llama-3-8b-8192` does not exist or you do not have access to it."
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "soy un orco feo y tonto. empezamos en una taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro a la taberna y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "**La Taberna \"El León Rojo\"**\n\nAl entrar en la taberna, te rodea el olor a cerveza y carne asada. La iluminación es tenue, con solo algunas velas y una chimenea que arde en un rincón. El ambiente es animado, con clientes de todo tipo: humanos, enanos, elfos y otros seres de diferentes razas y clases sociales.\n\nTe acercas a la barra y pides una cerveza al tabernero, un hombre robusto con una barba espesa y un delantal manchado de cerveza. Te mira con una mezcla de curiosidad y desconfianza, ya que no es común que un orco como tú entre en su establecimiento.\n\n\"¿Una cerveza, eh? ¿Qué tipo de cerveza quieres, amigo... orco?\" te pregunta el tabernero, intentando mantener una sonrisa en su rostro.\n\nMientras esperas a que te sirvan la cerveza, notas que algunos de los clientes te miran con desconfianza o incluso miedo. Otros, sin embargo, parecen interesados en ti y se acercan para charlar.\n\n**Opciones:**\n\n1. Pedir una cerveza específica (por ejemplo, \"una cerveza negra\" o \"una cerveza ligera\").\n2. Intentar charlar con los clientes que se acercan a ti.\n3. Ignorar a los demás y disfrutar de tu cerveza en silencio.\n4. Buscar un lugar para sentarte y observar el ambiente.\n\n¿Qué decides hacer?"
+        }
+      ]
+    },
+    {
+      "id": "1764323708548",
+      "fecha": "2025-11-28T09:55:08.548Z",
+      "systemPrompt": "Soy un orco feo y tonto, empezamos en una taberna",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "Soy un orco feo y tonto, empezamos en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "**La Taberna del Jabalí Negro**\n\nLa puerta de la taberna se abre con un crujido, y un olor a cerveza y carne asada llena tus fosas nasales. La iluminación es tenue, con solo algunas velas y lámparas de aceite para iluminar el espacio. La atmósfera es ruidosa y animada, con clientes de todo tipo reunidos alrededor de las mesas, bebiendo y charlando.\n\nTú, un orco feo y tonto, entras en la taberna y te acercas a la barra. El tabernero, un hombre gordo y barbudo, te mira con una mezcla de sorpresa y desconfianza.\n\n\"¿Qué quieres, orco?\", te pregunta con un gruñido.\n\nLe pides una cerveza, y el tabernero te mira con una ceja levantada.\n\n\"¿Una cerveza, eh? Bueno, eso te costará 5 monedas de cobre. ¿Tienes dinero para pagar?\"\n\nMientras esperas la respuesta del tabernero, notas que hay algunos clientes que te están mirando con curiosidad. Un grupo de enanos en la esquina te están observando con desconfianza, mientras que un par de humanos en la barra te están sonriendo y haciendo gestos amistosos.\n\n**¿Qué haces ahora?**\n\n1. Pagar la cerveza con 5 monedas de cobre\n2. Intentar regatear el precio de la cerveza\n3. Ignorar al tabernero y sentarte en una mesa\n4. Acercarte a los enanos y tratar de hacer amigos\n5. Acercarte a los humanos y unirte a su conversación\n\n¿Qué eliges?"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "Soy un orco feo y tonto, empezamos en una taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `mixtral-8x7b-32768` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead."
+        }
+      ]
+    },
+    {
+      "id": "1764323801059",
+      "fecha": "2025-11-28T09:56:41.059Z",
+      "systemPrompt": "orco feo y tonto, empezzamos en taberna",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "orco feo y tonto, empezzamos en taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "El tabernero, un hombre robusto con una barba espesa y una sonrisa cálida, te mira y te dice: \"¡Una cerveza, eh! ¿Quieres una de las nuestras especiales o algo más común?\" Mientras tanto, te rodea un ambiente cálido y acogedor, con el sonido de risas y conversaciones en el fondo.\n\nA tu izquierda, hay un grupo de personas jugando a las cartas, mientras que a tu derecha, hay un hombre solo sentado en la barra, bebiendo un trago y mirando hacia la nada con una expresión triste.\n\n¿Qué haces?\n\n1. Pides una cerveza especial\n2. Pides una cerveza común\n3. Te sientas en la barra y hablas con el hombre solo\n4. Te unes al grupo que juega a las cartas\n\n¿Qué decides hacer?"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "orco feo y tonto, empezzamos en taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `mixtral-8x7b-instruct-v0.1` does not exist or you do not have access to it."
+        }
+      ]
+    },
+    {
+      "id": "1764323859508",
+      "fecha": "2025-11-28T09:57:39.508Z",
+      "systemPrompt": "orco feo , empezamos en taberna",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "orco feo , empezamos en taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "**Bienvenido a la taberna**\n\nEl dueño de la taberna, un hombre robusto con una barba espesa y un delantal de cuero, te saluda con un gesto amistoso. \"¿Qué puedo servirte, amigo? ¿Una cerveza, eh? ¿Qué tipo de cerveza te gustaría? Tenemos una variedad de opciones: cerveza negra, cerveza rubia, cerveza de trigo... ¿O quizás algo más fuerte?\"\n\nMientras habla, te hace un gesto hacia la barra, donde hay una serie de barriles de madera con diferentes etiquetas. El ambiente de la taberna es cálido y acogedor, con un fuego ardiendo en la chimenea y el sonido de risas y conversaciones en el aire.\n\n**Opciones:**\n\n1. **Cerveza negra**: una cerveza oscura y robusta con un sabor intenso.\n2. **Cerveza rubia**: una cerveza clara y refrescante con un sabor ligero.\n3. **Cerveza de trigo**: una cerveza ligera y fresca con un sabor a trigo.\n4. **Otras opciones**: ¿hay algo más que te gustaría pedir? (puedes describir lo que te gustaría pedir)"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "orco feo , empezamos en taberna"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `mixtral-8x7b-groq` does not exist or you do not have access to it."
+        }
+      ]
+    },
+    {
+      "id": "1764323985124",
+      "fecha": "2025-11-28T09:59:45.124Z",
+      "systemPrompt": "orco feo, empiezo en taberna\n",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "orco feo, empiezo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "**La taberna cervezera**\n\nAcabas de entrar en una taberna acogedora y cálida, con un ambiente relajado y una decoración que recuerda a la Edad Media. El olor a cerveza fresca y a comida casera llena el aire, y el sonido de risas y conversaciones animadas te rodea.\n\nEl tabernero, un hombre robusto con una barba espesa y un delantal de cuero, te saluda con una sonrisa amistosa y te pregunta:\n\n\"¿Qué deseas beber, amigo? Tenemos una variedad de cervezas artesanales para elegir. ¿Quieres una cerveza clara y refrescante, o algo más oscura y compleja?\"\n\nMientras habla, te muestra una lista de cervezas en una pizarra negra, con opciones como:\n\n* **Cerveza de trigo**: una cerveza clara y ligera, perfecta para un día caluroso.\n* **Cerveza negra**: una cerveza oscura y rica, con notas de chocolate y café.\n* **Cerveza de abuela**: una cerveza artesanal hecha con ingredientes naturales y un toque de tradición.\n\n¿Qué cerveza eliges?"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "orco feo, empiezo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `llama-3-70b-8192` does not exist or you do not have access to it."
+        }
+      ]
+    },
+    {
+      "id": "1764324072093",
+      "fecha": "2025-11-28T10:01:12.093Z",
+      "systemPrompt": "orco feo , empeizo en taberna\n",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "orco feo , empeizo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "El tabernero, un hombre robusto con una barba espesa y un delantal manchado, te mira con una sonrisa cálida y te dice: \"¡Ah, un vaso de cerveza fresca, justo lo que necesitas después de un día largo! ¿Quieres una de nuestra cerveza artesanal o una de las marcas más conocidas?\"\n\nMientras habla, te señala la variedad de cervezas que tiene detrás de la barra, desde cervezas oscuras y robustas hasta cervezas claras y refrescantes.\n\n¿Qué respondes?"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "orco feo , empeizo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "[Error de IA]: The model `llama-3-8b-8192` does not exist or you do not have access to it."
+        }
+      ]
+    },
+    {
+      "id": "1764324170650",
+      "fecha": "2025-11-28T10:02:50.650Z",
+      "systemPrompt": "soy orco, empiezo en taberna\n",
+      "historial_ia1": [
+        {
+          "role": "system",
+          "content": "soy orco, empiezo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "**Bienvenido a la Taberna del Dragón Rojo**\n\nEl tabernero, un hombre robusto con una barba espesa y una sonrisa cálida, te saluda con un gesto amistoso. \"¡Ah, un nuevo rostro en nuestra humilde taberna! ¿Qué puedo ofrecerte, amigo?\"\n\nTe sirve una cerveza fría y espumosa en un vaso de madera tallada, y te la entrega con un gesto de invitación. \"¿Quieres sentarte en la barra o prefieres una mesa en el rincón?\"\n\nMientras bebes tu cerveza, puedes observar el ambiente de la taberna. Hay un grupo de enanos jugando a los dados en una mesa del rincón, mientras que un par de humanos charlan en voz baja en la barra. En el fondo de la taberna, hay un hombre misterioso con un capuchón sobre la cabeza, bebiendo un vaso de vino tinto.\n\n**Opciones:**\n\n1. **Sentarte en la barra** y charlar con el tabernero.\n2. **Unirte al grupo de enanos** y jugar a los dados.\n3. **Aproximarte al hombre misterioso** y tratar de entablar conversación.\n4. **Buscar una mesa en el rincón** y disfrutar de tu cerveza en silencio.\n\n¿Qué deseas hacer, Orco?"
+        }
+      ],
+      "historial_ia2": [
+        {
+          "role": "system",
+          "content": "soy orco, empiezo en taberna\n"
+        },
+        {
+          "role": "user",
+          "content": "entro y pido una cerveza"
+        },
+        {
+          "role": "assistant",
+          "content": "El camarero te mira con una sonrisa y te pregunta:\n\n- ¿Quieres una de nuestras cervezas locales o algo más?\n\n¿Qué respuesta le das?"
+        }
+      ]
+    }
+  ]
+}

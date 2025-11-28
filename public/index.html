@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D: Battle of the AIs (MySQL Edition)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chat-container { height: 65vh; overflow-y: auto; scroll-behavior: smooth; }
+        /* Scrollbar oscura personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-200 font-sans h-screen flex flex-col">
+
+    <!-- CABECERA -->
+    <header class="bg-gray-900 border-b border-gray-800 p-4 text-center shadow-lg z-10">
+        <h1 class="text-3xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+            ⚔️ D&D: IA vs IA
+        </h1>
+        <p class="text-xs text-gray-500 mt-1">Llama 3.1 8B (Rápido) vs Llama 3.3 70B (Potente)</p>
+    </header>
+
+    <div class="flex-1 overflow-hidden relative">
+        
+        <!-- PANTALLA 1: SELECCIÓN / NUEVA PARTIDA -->
+        <div id="setupScreen" class="absolute inset-0 z-20 bg-gray-950 p-6 overflow-y-auto">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Columna Izquierda: Nueva Partida -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-green-500">✚</span> Nueva Aventura
+                    </h2>
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Contexto inicial (System Prompt)</label>
+                    <textarea id="systemPrompt" class="w-full bg-gray-800 text-white p-4 rounded-lg border border-gray-700 focus:border-green-500 outline-none h-40 text-sm mb-4" placeholder="Ej: Eres un Dungeon Master oscuro. El jugador despierta en una celda húmeda sin memoria..."></textarea>
+                    <button onclick="iniciarNuevaPartida()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition shadow-lg hover:shadow-green-900/50">
+                        Comenzar Nueva Historia
+                    </button>
+                </div>
+
+                <!-- Columna Derecha: Cargar Partida (MySQL) -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-blue-500">📂</span> Cargar Partida
+                    </h2>
+                    <div id="listaPartidas" class="space-y-2 h-64 overflow-y-auto pr-2">
+                        <p class="text-gray-500 text-sm text-center py-4">Cargando partidas guardadas...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 2: JUEGO -->
+        <div id="gameScreen" class="hidden h-full flex flex-col max-w-7xl mx-auto w-full px-2 md:px-4">
+            
+            <!-- Botón Volver -->
+            <button onclick="volverAlMenu()" class="absolute top-2 left-4 text-gray-500 hover:text-white text-sm z-50">
+                ← Menú Principal
+            </button>
+
+            <!-- Grid de Chat -->
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 py-4 min-h-0">
+                
+                <!-- IA 1 -->
+                <div class="flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800/50 p-3 border-b border-gray-700 flex justify-between items-center">
+                        <span class="font-bold text-cyan-400 text-sm">⚡ DM 1 (Llama 8B)</span>
+                    </div>
+                    <div id="logIA1" class="chat-container p-4 space-y-4"></div>
+                </div>
+
+                <!-- IA 2 -->
+                <div class="flex flex-col bg-gray-900 rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800/50 p-3 border-b border-gray-700 flex justify-between items-center">
+                        <span class="font-bold text-purple-400 text-sm">🧠 DM 2 (Llama 70B)</span>
+                    </div>
+                    <div id="logIA2" class="chat-container p-4 space-y-4"></div>
+                </div>
+            </div>
+
+            <!-- Input Flotante -->
+            <div class="pb-6 pt-2">
+                <div class="relative flex items-center bg-gray-800 border border-gray-700 rounded-xl shadow-2xl">
+                    <input type="text" id="userAction" 
+                        class="w-full bg-transparent text-white px-5 py-4 focus:outline-none placeholder-gray-500"
+                        placeholder="Describe tu acción (Ej: Intento forzar la cerradura...)"
+                        autocomplete="off"
+                        onkeypress="if(event.key === 'Enter') enviarTurno()">
+                    
+                    <button id="btnEnviar" onclick="enviarTurno()" class="absolute right-2 bg-blue-600 hover:bg-blue-700 text-white p-2.5 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPartidaId = null;
+
+        // Cargar lista de partidas al iniciar
+        window.onload = cargarListaPartidas;
+
+        async function cargarListaPartidas() {
+            try {
+                const res = await fetch('/api/partidas');
+                const partidas = await res.json();
+                const container = document.getElementById('listaPartidas');
+                
+                if (partidas.length === 0) {
+                    container.innerHTML = '<p class="text-gray-600 text-sm text-center">No hay partidas guardadas.</p>';
+                    return;
+                }
+
+                container.innerHTML = partidas.map(p => `
+                    <div onclick="cargarPartida('${p.id}')" class="bg-gray-800 p-3 rounded hover:bg-gray-700 cursor-pointer transition border border-gray-700 group">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-xs text-blue-400 font-mono">ID: ${p.id.slice(-6)}</span>
+                            <span class="text-xs text-gray-500">${new Date(p.fecha).toLocaleDateString()}</span>
+                        </div>
+                        <p class="text-sm text-gray-300 line-clamp-2 text-left group-hover:text-white">${p.system_prompt || 'Sin descripción'}</p>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error("Error cargando lista:", e);
+            }
+        }
+
+        async function iniciarNuevaPartida() {
+            const prompt = document.getElementById('systemPrompt').value.trim() || "Eres un Dungeon Master de D&D.";
+            try {
+                const res = await fetch('/api/nueva-partida', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ systemPrompt: prompt })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    currentPartidaId = data.partidaId;
+                    prepararPantallaJuego();
+                    // Mensaje inicial del sistema en la UI
+                    const intro = `🎲 **Nueva Partida Iniciada**\nPrompt: _"${prompt}"_\n\nEsperando tu primera acción...`;
+                    renderMensaje('logIA1', 'system', intro);
+                    renderMensaje('logIA2', 'system', intro);
+                }
+            } catch (e) { alert("Error al crear partida"); }
+        }
+
+        async function cargarPartida(id) {
+            currentPartidaId = id;
+            try {
+                const res = await fetch(`/api/historial/${id}`);
+                const data = await res.json();
+                
+                if (data.error) return alert("Error cargando partida");
+
+                prepararPantallaJuego();
+                
+                // 1. Mostrar Prompt Inicial
+                const intro = `📂 **Partida Cargada**\nPrompt: _"${data.meta.system_prompt}"_`;
+                renderMensaje('logIA1', 'system', intro);
+                renderMensaje('logIA2', 'system', intro);
+
+                // 2. Reconstruir historial visualmente
+                data.turnos.forEach(t => {
+                    // Turno Usuario
+                    renderMensaje('logIA1', 'user', t.accion_usuario);
+                    renderMensaje('logIA2', 'user', t.accion_usuario);
+                    // Respuestas IA
+                    renderMensaje('logIA1', 'dm', t.respuesta_ia1);
+                    renderMensaje('logIA2', 'dm', t.respuesta_ia2);
+                });
+
+                // Scroll al final
+                scrollToBottom();
+
+            } catch (e) { console.error(e); alert("Error de conexión"); }
+        }
+
+        async function enviarTurno() {
+            const input = document.getElementById('userAction');
+            const texto = input.value.trim();
+            if (!texto || !currentPartidaId) return;
+
+            input.value = '';
+            setLoading(true);
+
+            // Mostrar acción usuario inmediatamente
+            renderMensaje('logIA1', 'user', texto);
+            renderMensaje('logIA2', 'user', texto);
+            scrollToBottom();
+
+            try {
+                const res = await fetch('/api/turno', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ partidaId: currentPartidaId, accionJugador: texto })
+                });
+                const data = await res.json();
+
+                renderMensaje('logIA1', 'dm', data.ia1);
+                renderMensaje('logIA2', 'dm', data.ia2);
+                scrollToBottom();
+            } catch (e) {
+                alert("Error en el turno. Revisa la consola/servidor.");
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // --- UTILIDADES UI ---
+
+        function prepararPantallaJuego() {
+            document.getElementById('setupScreen').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+            document.getElementById('logIA1').innerHTML = '';
+            document.getElementById('logIA2').innerHTML = '';
+        }
+
+        function volverAlMenu() {
+            document.getElementById('gameScreen').classList.add('hidden');
+            document.getElementById('setupScreen').classList.remove('hidden');
+            cargarListaPartidas(); // Recargar lista por si creamos una nueva
+        }
+
+        function renderMensaje(divId, role, text) {
+            const container = document.getElementById(divId);
+            const div = document.createElement('div');
+            
+            // Estilos según rol
+            if (role === 'user') {
+                div.className = "bg-gray-800 ml-8 p-3 rounded-l-lg rounded-tr-lg border-l-2 border-yellow-500 text-gray-200 text-sm";
+                div.innerHTML = `<span class="text-yellow-500 font-bold text-xs block mb-1">TÚ</span>${formatText(text)}`;
+            } else if (role === 'system') {
+                div.className = "text-center text-xs text-gray-500 py-2 border-y border-gray-800 my-2 italic";
+                div.innerHTML = formatText(text);
+            } else { // DM
+                div.className = "bg-gray-800/50 mr-8 p-3 rounded-r-lg rounded-tl-lg border-l-2 border-blue-500 text-gray-300 text-sm";
+                div.innerHTML = `<span class="text-blue-400 font-bold text-xs block mb-1">DM</span>${formatText(text)}`;
+            }
+            container.appendChild(div);
+        }
+
+        function formatText(text) {
+            // Formateo simple de negritas y saltos de línea
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+                .replace(/\n/g, '<br>');
+        }
+
+        function scrollToBottom() {
+            const c1 = document.getElementById('logIA1');
+            const c2 = document.getElementById('logIA2');
+            c1.scrollTop = c1.scrollHeight;
+            c2.scrollTop = c2.scrollHeight;
+        }
+
+        function setLoading(isLoading) {
+            const btn = document.getElementById('btnEnviar');
+            btn.disabled = isLoading;
+            btn.innerHTML = isLoading ? 
+                '<div class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>' : 
+                '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>';
+        }
+    </script>
+</body>
+</html>

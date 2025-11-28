@@ -1,0 +1,47 @@
+INFORME DE ANÁLISIS COMPARATIVO: BATALLA DE IAS COMO DUNGEON MASTERS
+
+Analista: El Aventurero Digital
+Fecha: [28/11/2025]
+
+Resumen de la Partida
+
+ID de Partida: DEMO-GROQ-1002A
+
+Contexto Inicial (System Prompt): Eres un Dungeon Master experto. El jugador, un orco con buen corazón, entra en una taberna llena de humanos.
+
+Duración del Test: 5 turnos de juego.
+
+El jugador interactuó con ambos DMs simultáneamente, ejecutando la misma acción en cada turno para observar y contrastar las respuestas generadas por cada modelo.
+
+Análisis de Criterios
+
+Pregunta Central: ¿Qué IA fue mejor DM y por qué?
+
+Veredicto: DM 1 (Llama 70B)
+
+Criterio: Coherencia y Memoria
+
+DM 2 (Llama 8B): Su coherencia fue funcional. Respondió directamente a las acciones del jugador (pedir una cerveza), pero su narrativa era minimalista y tendía a olvidar detalles atmosféricos entre turnos.
+
+DM 1 (Llama 70B): Demostró una memoria superior del contexto social y emocional (e.g., la desconfianza hacia el orco) y mantuvo la coherencia del escenario de la taberna a lo largo de los turnos. Introdujo personajes con más consistencia.
+
+Criterio: Creatividad y Estilo Narrativo
+
+DM 2 (Llama 8B): Descripciones genéricas ("El camarero te sirve una cerveza"). Su enfoque es la velocidad, lo que resulta en un estilo conciso pero plano.
+
+DM 1 (Llama 70B): Claramente superior en creatividad. Ofreció descripciones ricas y variadas (e.g., el tabernero "gordo y amable con una barba espesa"), y narró diálogos con tono y subtexto, enriqueciendo la inmersión del jugador.
+
+Criterio: Adherencia a Reglas (Tiradas de Dados)
+
+DM 2 (Llama 8B): [Observaciones no realizadas o no aplicables al test.]
+
+DM 1 (Llama 70B): [Observaciones no realizadas o no aplicables al test.]
+
+Conclusión y Recomendación
+
+Basado en el análisis de coherencia, creatividad y gestión de las reglas, la IA DM 2 (Llama 3.3 70B) se demostró como el mejor DM.
+
+Justificación Clave:
+El DM 1 (Llama 70B) ofrece una experiencia inmersiva muy superior. Se expresa con mayor variedad de posibilidades, profundiza en las descripciones y genera una narrativa con mejor "pinta" y atmósfera, lo cual es vital para el rol de Dungeon Master.
+
+Se recomienda utilizar el modelo Llama 3.3 70B para futuras sesiones de juego inmersivo donde la calidad de la historia sea la prioridad. Para entornos que requieran respuestas extremadamente rápidas y funcionales (y asumiendo que el modelo no esté deshabilitado), el modelo Llama 3.1 8B sigue siendo una opción viable.

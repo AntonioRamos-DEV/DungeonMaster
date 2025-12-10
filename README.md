@@ -1,8 +1,8 @@
-⚔️ D&D: Batalla de IAs (Groq + MySQL)
+D&D: Batalla de IAs (Groq + MySQL)
 
 Este proyecto es una aplicación web de Master de Mazmorras (Dungeon Master o DM) que utiliza dos modelos de lenguaje grandes (LLMs) de Groq para gestionar una partida de rol en tiempo real. La característica clave es la persistencia: todas las partidas y turnos se guardan en una base de datos MySQL, permitiendo al usuario retomar cualquier aventura donde la dejó.
 
-🛠️ Tecnologías Utilizadas
+Tecnologías Utilizadas
 
 Frontend: HTML, Tailwind CSS y JavaScript.
 
@@ -14,7 +14,7 @@ Integración de IA: API de Groq para la generación de texto.
 
 Librerías de Node.js: express, cors, dotenv, mysql2.
 
-✨ Características
+Características
 
 Doble DM: Cada acción del jugador es respondida por dos IAs (Model A y Model B) simultáneamente para comparar sus estilos, velocidad y profundidad.
 
@@ -24,7 +24,7 @@ Recuperación de Partidas: Los LLMs son capaces de recuperar el contexto complet
 
 Configuración Simple: Uso de un archivo .env para gestionar claves y configuración de modelos.
 
-⚙️ Configuración del Entorno
+ Configuración del Entorno
 
 1. Instalación de Node.js y Librerías
 
@@ -79,18 +79,18 @@ PORT=3000
 # API Key de Groq
 GROQ_API_KEY=gsk_...
 
-# Modelos a comparar (Asegúrate de que estén disponibles en tu cuenta)
+# Modelos a comparar
 MODEL_A=llama-3.1-8b-instant
 MODEL_B=llama-3.3-70b-versatile
 
-# Configuración MySQL (Default de XAMPP)
+# Configuración MySQL
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=dungeonmaster2
 
 
-▶️ Ejecución del Proyecto
+Ejecución del Proyecto
 
 Ejecuta el Backend: Abre tu terminal en la carpeta del proyecto y ejecuta el servidor Node.js:
 
